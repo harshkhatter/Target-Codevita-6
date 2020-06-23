@@ -1,0 +1,54 @@
+# https://www.hackerrank.com/contests/target-codevita-6/challenges/breaking-best-and-worst-records
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the breakingRecords function below.
+def breakingRecords(scores):
+    #Function breakingRecords with scores parameters
+    # initialize the min and max values as mn = mx = first score of maria
+    mn = mx =scores[0]
+    # initialize the count of min and max values as c_mn = c_mx = 0
+    c_mn = c_mx = 0
+    
+    # one by one, check all scores of maria and see the breaking records conditions
+    # start the iterations from second score, as first score is initialized the variables
+    for i in range(1,len(scores)):
+        
+        # if new score is the highest scores till now
+        if scores[i] > mx:
+            # change the max value and increase the max count by 1
+            mx = scores[i]
+            c_mx += 1
+            
+        # if new score is the lowest scores till now
+        if scores[i] < mn:
+            # change the min value and increase the min count by 1
+            mn = scores[i]
+            c_mn += 1
+
+        # return the count of max and min record    
+    return [c_mx, c_mn]
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+    # scores of maria is stores in form of list/array
+    scores = list(map(int, input().rstrip().split()))
+
+    # call for function breakingRecords with scores argument
+    result = breakingRecords(scores)
+
+    #return the max count and min count 
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
+
+# https://www.hackerrank.com/contests/target-codevita-6/challenges/breaking-best-and-worst-records
