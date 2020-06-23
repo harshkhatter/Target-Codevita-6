@@ -1,0 +1,36 @@
+# https://www.hackerrank.com/contests/target-codevita-6/challenges/birthday-cake-candles
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the birthdayCakeCandles function below.
+def birthdayCakeCandles(ar):
+    # as the maximum height one can be blown
+    # find the candle with maximum height using max function
+    m=max(ar)
+    
+    #count how many candles are there with max height
+    c= ar.count(m)
+    
+    # return the number of blown candles
+    return c
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    ar_count = int(input())
+
+    ar = list(map(int, input().rstrip().split()))
+
+    result = birthdayCakeCandles(ar)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+# https://www.hackerrank.com/contests/target-codevita-6/challenges/birthday-cake-candles
